@@ -24,9 +24,7 @@ const randomLogin = () => {
     return login;
 };
 const loginRandom = randomLogin();
-
-console.log('task 1 -> generate random login 2-20 symbols:')
-console.log(loginRandom);
+// console.log(loginRandom);
 
 // HM task 2 (return generated password 8-12 symbols) 
 const randomPassword = () => {
@@ -46,9 +44,7 @@ const randomPassword = () => {
     return pass;
 };
 const passRandom = randomPassword();
-
-console.log('task 2 -> generate random password 8-12 symbols:')
-console.log(passRandom);
+// console.log(passRandom);
 
 // HM task 3 (return mixed array)
 const mixArray = (array) => {
@@ -67,6 +63,25 @@ const mixArray = (array) => {
 
 const sourceArray = [1, 2, 3, 4, 5];
 let mixedArray = mixArray(sourceArray);
+// console.log(mixedArray);
 
-console.log('task 3 -> mix array:');
-console.log(mixedArray);
+
+// ----------------- HW2 ------------------
+
+// HM2 task 1
+const numeralCodes = [['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
+                        ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'],
+                        ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM']];
+const convertNum = (num) => {
+    let result = '';
+    const digits = num.toString().split('').reverse();
+    
+    for(let i = 0; i < digits.length; i += 1){
+        result = `${numeralCodes[i][parseInt(digits[i])]}${result}`;
+    }
+
+    return result;
+}
+
+const conNum = convertNum(26);
+// console.log(conNum);
