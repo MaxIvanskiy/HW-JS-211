@@ -21,14 +21,12 @@ const randomLogin = () => {
         login = `${ login }${ SYMBOLS_LOGIN_LOWER[rand] }`;
     }
 
-
     return login;
 };
 const loginRandom = randomLogin();
 
 console.log('task 2 -> generate random login 2-20 symbols:')
 console.log(loginRandom);
-
 
 // HM task 2 (return generated password 8-12 symbols) 
 const randomPassword = () => {
@@ -44,7 +42,6 @@ const randomPassword = () => {
         const rand = generateRandomNumber(0, SYMBOLS_PASS_LENGTH);
         pass = `${ pass }${ SYMBOLS_PASS[rand] }`
     }
-
 
     return pass;
 };
