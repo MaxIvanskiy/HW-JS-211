@@ -13,7 +13,7 @@ function mixArray(array){
         let randomIndex = Math.floor(Math.random() * currntIndex);
         currntIndex--;
 
-        [mixedArray[currntIndex], mixedArray[randomIndex]] = [mixedArray[randomIndex], mixedArray[currntIndex]]
+        [mixedArray[currntIndex], mixedArray[randomIndex]] = [mixedArray[randomIndex], mixedArray[currntIndex]];
     }
 
     return mixedArray;
