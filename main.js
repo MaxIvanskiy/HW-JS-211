@@ -25,7 +25,7 @@ const randomLogin = () => {
 };
 const loginRandom = randomLogin();
 
-console.log('task 2 -> generate random login 2-20 symbols:')
+console.log('task 1 -> generate random login 2-20 symbols:')
 console.log(loginRandom);
 
 // HM task 2 (return generated password 8-12 symbols) 
