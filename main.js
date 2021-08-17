@@ -4,13 +4,21 @@
 // HM task 2 (return generated password 8-12 symbols) 
 
 
-// HM task 3 (mix array function)
-const sourceArray = [1, 2, 3, 4, 5];
+// HM task 3 (return mixed array)
+function mixArray(array){
+    let currntIndex = array.length;
+    let mixedArray = array;
 
-function mixArray(sourceArray){
-    let mixedArray = sourceArray;
+    while(currntIndex != 0){
+        let randomIndex = Math.floor(Math.random() * currntIndex);
+        currntIndex--;
+
+        [mixedArray[currntIndex], mixedArray[randomIndex]] = [mixedArray[randomIndex], mixedArray[currntIndex]]
+    }
 
     return mixedArray;
 };
-console.log(m1);
-console.log(mixArray(sourceArray));
+
+const sourceArray = [1, 2, 3, 4, 5];
+let mixedArray = mixArray(sourceArray);
+console.log(mixedArray);
