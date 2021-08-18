@@ -5,15 +5,15 @@
     const sortList = (list) => {
         // change source List to UPPERCASE
         // & convert source List to array
-        let listUpper = list.toUpperCase();
-        const listArray = listUpper.split(';');
+        list = list.toUpperCase();        
+        const listArray = list.split(';');
         // convert each List name to array 
         // & make last name the first element of each array
         for(let i = 0; i < listArray.length; i +=1){
             listArray[i] = listArray[i].split(':');
             [listArray[i][0], listArray[i][1]] = [listArray[i][1], listArray[i][0]];
         }
-        // sort list by last names
+        // sort list by last names and first names
         for(let i = 0; i < listArray.length; i +=1){
             listArray.sort(function(a, b){
                 if(a[0] < b[0]){ return -1; }
