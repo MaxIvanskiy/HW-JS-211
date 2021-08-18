@@ -17,8 +17,12 @@
         for(let i = 0; i < listArray.length; i +=1){
             listArray.sort(function(a, b){
                 if(a[0] < b[0]){ return -1; }
-                if(a[0] > b[0]){ return 1; }
-                return 0;
+                else if(a[0] > b[0]){ return 1; }
+                else{
+                    if(a[1] < b[1]){ return -1; }
+                    if(a[1] > b[1]){ return 1; }
+                    return 0;
+                }
             });
         }
         // convert sorted Array to String
@@ -28,6 +32,7 @@
         }
         result = result.slice(0, -1);
 
+        console.log(listArray);
         return result;
     }
 
