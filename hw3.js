@@ -32,7 +32,6 @@
         }
         result = result.slice(0, -1);
 
-        console.log(listArray);
         return result;
     }
 
