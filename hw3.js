@@ -38,7 +38,36 @@
     let listOfGuests = sortList(s);
     console.log(listOfGuests);
 
+// task 2
+    const rooms = [['XXX', 4], ['XXXXXX', 9], ['XX', 5]];
+
+    const meeting = (rooms, need) => {
+        let result;
+        if(need === 0){
+            result = 'Game on';
+        }else {
+            const freeChairs = [];
+            let total = 0;
+            for(let i = 0; i < rooms.length; i += 1){
+                let occupants = rooms[i][0].length;
+                let chairs = rooms[i][1];
+                let free = chairs - occupants;
+                freeChairs.push(free);                    
+                total += free;
+                if(total >= need){
+                    return freeChairs;
+                }
+            }
+            if(total < need){
+                result = 'Not enough!';
+            }else{
+                result = freeChairs;
+            }
+        }
+        return result;
+    }
+
+    console.log(meeting(rooms, 4));
 
 
-// task 2 
 // task 3
