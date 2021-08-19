@@ -71,3 +71,34 @@
 
 
 // task 3
+    const dots = [  [2,2],  
+                    [2,8],
+                    [5,5],
+                    [6,3],
+                    [6,7],
+                    [7,4],
+                    [7,8]   ];
+
+    const findClosest = (array) => {
+        let distance = 0;
+        let result = [];
+        for(let i = 0; i < array.length-1; i += 1){
+            for(let j = 0; j < array.length; j += 1){
+                if(i != j){
+                    let a = Math.abs(array[i][0] - array[j][0]);
+                    let b = Math.abs(array[i][1] - array[j][1]);
+                    let x = Math.abs(a - b);
+
+                    if(distance === 0){
+                        distance =  x;
+                    }else if(distance > x){
+                        distance = x;
+                        result = [array[i], array[j]];
+                    }                    
+                }
+            }
+        }
+        return result;
+    }
+    const closestDots = findClosest(dots);
+    console.log(closestDots);
