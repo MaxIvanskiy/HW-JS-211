@@ -67,7 +67,7 @@
         return result;
     }
 
-    console.log(meeting(rooms, 4));
+    console.log(meeting(rooms, 5));
 
 
 // task 3
