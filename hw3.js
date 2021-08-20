@@ -3,34 +3,20 @@
  let s = 'Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill';
 
     const sortList = (list) => {
-        // change source List to UPPERCASE
-        // & convert source List to array
-        list = list.toUpperCase();        
-        const listArray = list.split(';');
-        // convert each List name to array 
-        // & make last name the first element of each array
-        for(let i = 0; i < listArray.length; i +=1){
-            listArray[i] = listArray[i].split(':');
-            [listArray[i][0], listArray[i][1]] = [listArray[i][1], listArray[i][0]];
-        }
-        // sort list by last names and first names
-        for(let i = 0; i < listArray.length; i +=1){
-            listArray.sort(function(a, b){
-                if(a[0] < b[0]){ return -1; }
-                else if(a[0] > b[0]){ return 1; }
-                else{
-                    if(a[1] < b[1]){ return -1; }
-                    if(a[1] > b[1]){ return 1; }
-                    return 0;
-                }
-            });
-        }
-        // convert sorted Array to String
+        const listArray = list.toUpperCase().split(';').map(el => el = el.split(':').reverse());
+
+        listArray.sort(function(a, b){
+            if(a[0] < b[0]){ return -1; }
+            if(a[0] > b[0]){ return 1; }
+            if(a[1] < b[1]){ return -1; }
+            if(a[1] > b[1]){ return 1; }
+            return 0;
+        });
+
         let result = '';
-        for(let i = 0; i < listArray.length; i += 1){
-            result = `${result}(${listArray[i][0]}, ${listArray[i][1]}) `;
-        }
-        result = result.slice(0, -1);
+
+        result = listArray.reduce((acc, el) => `${acc}(${el[0]}, ${el[1]}) ` , '');
+        result = result.trim();
 
         return result;
     }
@@ -79,26 +65,22 @@
                     [7,4],
                     [7,8]   ];
 
-    const findClosest = (array) => {
-        let distance = 0;
-        let result = [];
-        for(let i = 0; i < array.length-1; i += 1){
-            for(let j = 0; j < array.length; j += 1){
-                if(i != j){
-                    let a = Math.abs(array[i][0] - array[j][0]);
-                    let b = Math.abs(array[i][1] - array[j][1]);
-                    let x = Math.abs(a - b);
-
-                    if(distance === 0){
-                        distance =  x;
-                    }else if(distance > x){
-                        distance = x;
-                        result = [array[i], array[j]];
-                    }                    
+    const findClosest = (array) => { 
+        let distance = Infinity; 
+        let result = []; 
+        for(let i = 0; i < array.length-1; i += 1){ 
+            for(let j = i+1; j < array.length; j += 1){ 
+                    const a = Math.pow(array[i][0] - array[j][0], 2);
+                    const b = Math.pow(array[i][1] - array[j][1], 2); 
+                    const x = Math.sqrt(a + b); 
+                    if(distance > x){ 
+                        distance = x; 
+                        result = [array[i], array[j]];                  
                 }
             }
         }
-        return result;
-    }
+        return result; 
+    } 
+
     const closestDots = findClosest(dots);
     console.log(closestDots);
