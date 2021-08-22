@@ -15,8 +15,7 @@
 
         let result = '';
 
-        result = listArray.reduce((acc, el) => `${acc}(${el[0]}, ${el[1]}) ` , '');
-        result = result.trim();
+        result = listArray.reduce((acc, el) => `${acc}(${el[0]}, ${el[1]}) ` , '').trim();
 
         return result;
     }

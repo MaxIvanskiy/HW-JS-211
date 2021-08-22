@@ -1,4 +1,4 @@
-const calcSquare = (triangles) => {
+const fibonachi = (context) => {
     let result = [];
     
     return result;
