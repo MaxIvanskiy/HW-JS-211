@@ -68,6 +68,7 @@ console.log('-------------------');
 class HomeLibrary{
     books = [];
     static idCounter = 0;
+
     addBook(title, author, genre, year, language){
         HomeLibrary.idCounter += 1;
         let book = {
@@ -87,42 +88,6 @@ class HomeLibrary{
                 return true;
             }
         }
-    }    
-    findByYear(year){
-        let result = [];
-        for( let i = 0; i < this.books.length; i += 1){
-            if(this.books[i].year == year){
-                result.push(this.books[i]);
-            }
-        }
-        return result;
-    }
-    findByAuthor(author){
-        let result = [];
-        for( let i = 0; i < this.books.length; i += 1){
-            if(this.books[i].author == author){
-                result.push(this.books[i]);
-            }
-        }
-        return result;
-    }
-    findByTitle(title){
-        let result = [];
-        for( let i = 0; i < this.books.length; i += 1){
-            if(this.books[i].title == title){
-                result.push(this.books[i]);
-            }
-        }
-        return result;
-    }
-    findByGenre(genre){
-        let result = [];
-        for( let i = 0; i < this.books.length; i += 1){
-            if(this.books[i].genre == genre){
-                result.push(this.books[i]);
-            }
-        }
-        return result;
     }
     findBook(prop, value){
         let result = [];
@@ -157,24 +122,11 @@ lib.addBook('1001 Albums You Must Hear Before You Die', 'Robert Dimery', 'Non-Fi
 lib.addBook('1001 Beers You Must Try Before You Die', 'Adrian Tierney-Jones', 'Lifestyle', 2018, 'English');
 lib.addBook('11.22.63', 'Stephen King', 'Thriller', 2012, 'English');
 
-const booksByYear = lib.findByYear(2018);
-const booksByAuthor = lib.findByAuthor('Stephen King');
-const booksByGenre = lib.findByGenre('Fantasy');
-const booksByTitle = lib.findByTitle('To Kill A Mockingbird');
+console.log('library info :', lib);
+console.log('-------------------');
 
 const findBook = lib.findBook('year', 2018);
-
-console.log('library info :', lib);
-
-console.log('-------------------');
-console.log('find by Year : ',booksByYear);
-console.log('find by Author : ', booksByAuthor);
-console.log('find by Genre : ', booksByGenre);
-console.log('find by Title', booksByTitle);
-console.log('-------------------');
 console.log('find book : ', findBook);
 
-console.log('-------------------');
-
-const sortedB = lib.sortBooks('year');
-console.log('library sorted :', sortedB);
+const sortedLib = lib.sortBooks('year');
+console.log('library sorted :', sortedLib);
