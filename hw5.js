@@ -63,6 +63,9 @@ console.log('Train info : ', trainInfo);
 console.log('-------------------');
 console.log('-------------------');
 
+console.log('-------------------');
+console.log('-------------------');
+
 // --------------------------------------------------------------------
 
 class HomeLibrary{
@@ -73,23 +76,24 @@ class HomeLibrary{
         HomeLibrary.idCounter += 1;
         let book = {
             id : HomeLibrary.idCounter,
-            title : title,
-            author : author,
-            genre : genre,
-            year : year,
-            language : language
+            title,
+            author,
+            genre,
+            year,
+            language
         };
         this.books.push(book);
     }
     deleteBook(id){
-        for( let i = 0; i < this.books.length; i += 1){
-            if(this.books[i].id == id){
-                this.books.splice(i, 1);
-                return true;
-            }
-        }
+        let ind = this.books.findIndex(el => el.id == id);
+        this.books.splice(ind, 1);
     }
     findBook(prop, value){
+        // let result = [];
+        // this.books.find(el => el[prop] == value);
+        // result.push(find);
+        // return result;
+
         let result = [];
         for( let i = 0; i < this.books.length; i += 1){
             if(this.books[i][prop] == value){
